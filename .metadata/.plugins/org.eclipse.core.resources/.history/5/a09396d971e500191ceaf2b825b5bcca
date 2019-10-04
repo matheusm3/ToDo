@@ -1,0 +1,13 @@
+package ToDo;
+
+import java.util.Date;
+
+public class Usuario {
+
+
+	private int cod_usuario;
+	private String nome_usuario;
+	private String email;
+	private String senha;
+	private int status;
+}

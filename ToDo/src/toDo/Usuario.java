@@ -1,0 +1,45 @@
+package toDo;
+
+public class Usuario {
+
+
+	private int cod_usuario;
+	private String nome_usuario;
+	private String email;
+	private String senha;
+	private int status;
+	public int getCod_usuario() {
+		return cod_usuario;
+	}
+	public void setCod_usuario(int cod_usuario) {
+		this.cod_usuario = cod_usuario;
+	}
+	public String getNome_usuario() {
+		return nome_usuario;
+	}
+	public void setNome_usuario(String nome_usuario) {
+		this.nome_usuario = nome_usuario;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
+	public String toString() {
+		return "Usuario [cod_usuario=" + cod_usuario + ", nome_usuario=" + nome_usuario + ", email=" + email + ", senha=" + senha + ", status=" + status +"]";
+	}
+}

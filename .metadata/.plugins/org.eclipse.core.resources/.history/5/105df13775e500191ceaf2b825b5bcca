@@ -1,0 +1,77 @@
+package ToDo;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class UsuarioDAO extends BasicoDAO {
+	
+	public void insert(Usuario usuario) {
+
+		String sql = " insert into usuario(nome_usuario, email, senha, status) values(?,?,?,?)";
+		
+		try (Connection conn = getConnection();
+			 PreparedStatement statement = conn.prepareStatement(sql)){
+			statement.setString(1, usuario.getNome_usuario());
+			statement.setString(2, usuario.getEmail());
+			statement.setString(3, usuario.getSenha());
+			statement.setInt(4, usuario.getStatus());
+			statement.execute();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void delete (Usuario usuario) {
+		
+		String sql = " delete from usuario where id = ?";
+	
+		try(Connection conn = getConnection();
+				PreparedStatement statement = conn.prepareStatement(sql)) {
+				statement.setInt(1, usuario.getCod_usuario());
+				statement.execute();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+	}
+	
+	public void update (Usuario usuario) {
+		String sql = " update usuario set nome_usuario = ?, email = ?, senha = ?, status = ? where id = ?";
+	
+
+		try (Connection conn = getConnection();
+			 PreparedStatement statement = conn.prepareStatement(sql)){
+			statement.setString(1, usuario.getNome_usuario());
+			statement.setString(2, usuario.getEmail());
+			statement.setString(3, usuario.getSenha());
+			statement.setInt(4, usuario.getStatus());
+			statement.execute();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Usuario getById (int id) {
+		Usuario usuario = null;
+		String sql = " select cod_usuario, nome_usuario, email from usuario where cod_usuario = ?";
+	
+
+		try(Connection conn = getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql)) {
+			statement.setInt(1, id);
+			ResultSet resultSet = statement.executeQuery();
+			if(resultSet.next()) {
+				usuario = new Usuario();
+				usuario.setCod_usuario(resultSet.getInt(1));
+				usuario.setNome_usuario(resultSet.getString(2));
+				usuario.setEmail(resultSet.getString(3));
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return usuario;
+	}
+}

@@ -1,0 +1,46 @@
+package ToDo;
+import java.util.Date;
+
+public class Tarefa {
+
+	private int cod_tarefa;
+	private String descricao;
+	private int check;
+	private String data;
+	private String usuario;
+	
+	public int getCod_tarefa() {
+		return cod_tarefa;
+	}
+	public void setCod_tarefa(int cod_tarefa) {
+		this.cod_tarefa = cod_tarefa;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public int getCheck() {
+		return check;
+	}
+	public void setCheck(int check) {
+		this.check = check;
+	}
+	public Date getData() {
+		return data;
+	}
+	public void setData(Date data) {
+		this.data = data;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	
+	public String toString() {
+		return "Tarefa [cod_tarefa=" + cod_tarefa + ", descricao=" + descricao + ", check=" + check + ", data=" + data + ", usuario=" + usuario + "]";
+	}
+}

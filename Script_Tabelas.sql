@@ -20,4 +20,4 @@ CREATE TABLE IF NOT EXISTS `mydb`.`tarefa` (
   CONSTRAINT `usuario`
     FOREIGN KEY (`usuario`)
     REFERENCES `mydb`.`usuario` (`cod_usuario`)
-)
+);
